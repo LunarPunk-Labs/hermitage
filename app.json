@@ -1,0 +1,14 @@
+{
+  "name": "nPersonas",
+  "description": "Holochain RSM personas management",
+  "authors": [
+    {
+      "identifier": "Thomas cal <nphias@gmail.com>",
+      "public_key_source": "",
+      "signature": ""
+    }
+  ],
+  "version": "0.1.0",
+  "dht": {},
+  "properties": null
+}
