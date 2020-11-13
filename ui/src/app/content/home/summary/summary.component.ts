@@ -13,6 +13,8 @@ export class SummaryComponent implements OnInit {
   persona: AgentPersona;
   personalist: Observable<AgentPersona[]>;
   errorMessage:string
+  personas:string[] = ["friends","work","developer"] //mock
+  profiles:string[] = ["calendar","chat","adacast"] //mock
 
   constructor(  private router: Router) {  //private agents: AllPersonasGQL, AllProfilesGQL
   }

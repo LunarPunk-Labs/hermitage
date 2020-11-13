@@ -3,32 +3,27 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <section class="post-footer-comment-wrapper">
+          <img
+            class="photo-profile"
+            src="../assets/img/avatar_placeholder.jpg"
+            width="140"
+            height="140"
+            alt="..."
+          />
           <table class="table">
-            Persona list
             <thead class="thead-light">
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Id</th>
-                <th scope="col">creation date</th>
-                <th scope="col">Last used</th>
-              </tr>
+                <th scope="col">(0)</th>
+                <th scope="col"><select><option *ngFor="let p of personas" [ngValue]="p">{{p}}</option></select></th>
+                <th scope="col">edit</th>
+              </tr> 
             </thead>
            
             <tbody>
-                <tr *ngFor='let persona of (personalist | async)'>
-                  <th scope="row"><a routerLink="/profile/{{ persona.hash }}" routerLinkActive="active">
-                    <img
-                      class="photo-profile"
-                      src="../assets/img/avatar_placeholder.jpg"
-                      width="40"
-                      height="40"
-                      alt="..."
-                    />
-                  </a></th>
-                  <td>Maija</td>
-                  <td>123</td>
-                  <td>01/01/2020</td>
-                  <td>01/01/2020</td>
+              <h2>Profiles</h2>
+                <tr *ngFor='let p of profiles'>
+                  <td scope="row"><a routerLink="/profile/{{ profiles[0] }}" routerLinkActive="active">
+                  {{p}}</a></td>
                 </tr>
             </tbody>
           </table>
@@ -36,32 +31,11 @@
         </section>
         <section class="post-footer-comment-wrapper">
           <table class="table">
-            Profile list
-            <thead class="thead-light">
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Id</th>
-                <th scope="col">creation date</th>
-                <th scope="col">Last used</th>
+                <th>Me</th>
+                <th>People</th>
+                <th>things</th>
               </tr>
-            </thead>
-           
-            <tbody>
-              <tr>
-                <!--<tr *ngFor='let user of (userlist | async)'>
-                  <th scope="row"><a routerLink="/profile/{{ user.hash }}" routerLinkActive="active">
-                    <img
-                      class="photo-profile"
-                      src="../assets/img/avatar_placeholder.jpg"
-                      width="40"
-                      height="40"
-                      alt="..."
-                    />-->
-                  <td>blah</td>
-                  <td>31/12/2012</td>
-                  <td>01/01/2020</td>
-                </tr>
-            </tbody>
           </table>
           <br />
         </section>
