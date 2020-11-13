@@ -13,10 +13,8 @@ import { environment } from '@environment';
 
 
 export function createApollo(hcs:HolochainService) {
-  //console.log("in graph module with connection:",hcs.hcConnection)
   const callZome = hcs
   let schemaLinks = null
-  //let resolvers = null
   if (!environment.mock){
     const resolvers = hc_resolvers
     schemaLinks = new SchemaLink({ schema: makeExecutableSchema({ typeDefs, resolvers}), context: callZome })

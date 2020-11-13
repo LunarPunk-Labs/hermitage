@@ -63,6 +63,31 @@
       </div>
       <br />
 
+      <div class="col-md-12" style="margin: auto;">
+        <div style="color:red">{{errorMessage}}</div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form class="form" *ngIf="formArr.controls" [formGroup]="appfields" (ngSubmit)="sendData()">
+                <section class="post-footer-comment-wrapper">
+              
+                  <table class="table">
+                    
+                      <tr *ngFor="let item of inputFields; let i=index;">
+                        <td class="thead-light" scope="row">{{inputFields[i]}}</td> <td><input type="text" value="{{formArr.value[i]}}"/></td>
+                        <td><select><option *ngFor="let p of personas" [ngValue]="p">{{p}}</option></select></td>
+                      </tr>
+                  
+                    
+                  </table>
+                </section>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <br />
+            </div>
+          </div>
+        </div>
+      
+
       <!-- /.container-fluid -->
     </div>
     <!-- /.content-wrapper -->

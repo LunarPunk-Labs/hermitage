@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "nPersonas": {
+    "npersonas": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/nPersonas",
+            "outputPath": "dist/npersonas",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,21 +74,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "nPersonas:build"
+            "browserTarget": "npersonas:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "nPersonas:build:production"
+              "browserTarget": "npersonas:build:production"
             },
             "mock": {
-              "browserTarget": "nPersonas:build:mock"
+              "browserTarget": "npersonas:build:mock"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nPersonas:build"
+            "browserTarget": "npersonas:build"
           }
         },
         "lint": {
@@ -104,5 +104,5 @@
         }
       }
     }},
-  "defaultProject": "nPersonas"
+  "defaultProject": "npersonas"
 }

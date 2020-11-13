@@ -1,7 +1,7 @@
 {
-  "name": "nPersonas",
+  "name": "npersonas",
   "description": "holochain starter demo",
-  "repository": "https://github.com/nphias/nPersonas",
+  "repository": "https://github.com/nphias/npersonas",
   "license": "MIT",
   "version": "0.0.1",
   "author": "nphias",
@@ -11,7 +11,7 @@
     "mock": "ng serve --configuration=mock",
     "build": "ng build",
     "buildproduction": "ng build --configuration=production",
-    "web": "http-server dist/nPersonas",
+    "web": "http-server dist/npersonas",
     "lint": "ng lint"
   },
   "dependencies": {
