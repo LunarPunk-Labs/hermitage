@@ -5,8 +5,9 @@ export enum AccessType {
 }
 
 export interface AgentPersona {
-  name: string
   id: string
+  name: string,
+  avatar:string
 }
 
 export interface ProfileInit {

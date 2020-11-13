@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
-import { Agent, Profile } from 'src/app/graphql/queries/myprofile-gql';
+import { AgentPersona } from 'src/app/graphql/interfaces';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Agent, Profile } from 'src/app/graphql/queries/myprofile-gql';
   styleUrls: ["./profile.component.css"]
 })
 export class ProfileComponent implements OnInit {
-  user: Agent //Promise<User> | null = null
+  user: AgentPersona //Promise<User> | null = null
   errorMessage:string = ""
   appfields: FormGroup
   submitted = false;
@@ -30,8 +30,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     if (!sessionStorage.getItem("userhash"))
       this.router.navigate(["signup"]);
-    const profile:Profile = {username:sessionStorage.getItem("username")}
-    this.user = <Agent>{id:sessionStorage.getItem("userhash"),profile}
+    const username = sessionStorage.getItem("username")
+    this.user = <AgentPersona>{id:sessionStorage.getItem("userhash"),name:username}
     this.user.avatar = sessionStorage.getItem("avatar")
     this.appfields = this.fb.group({
       Rows : this.fb.array([])

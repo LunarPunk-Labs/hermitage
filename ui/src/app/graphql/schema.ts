@@ -8,8 +8,9 @@ enum AccessType {
 }
 
 type AgentPersona {
-  name: String!
   id: ID!
+  name: String!
+  avatar:String
 }
 
 type ProfileData {
@@ -57,6 +58,7 @@ type Query {
   profile(profile_id:ID!): ProfileData
   allPersonas: [AgentPersona!]!
   currentPersona: AgentPersona!
+  personaProfiles(persona_id: ID!):[ProfileData]
 }
 
 type Mutation {

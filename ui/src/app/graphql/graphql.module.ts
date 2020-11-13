@@ -20,7 +20,7 @@ export function createApollo(hcs:HolochainService) {
     schemaLinks = new SchemaLink({ schema: makeExecutableSchema({ typeDefs, resolvers}), context: callZome })
   }else{
     const resolvers = mock_resolvers
-    schemaLinks = new SchemaLink({ schema: makeExecutableSchema({ typeDefs, resolvers}), context: callZome })
+    schemaLinks = new SchemaLink({ schema: makeExecutableSchema({ typeDefs, resolvers}) })
   }
   const links =[schemaLinks] 
 

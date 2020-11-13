@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateProfileGQL } from 'src/app/graphql/queries/create-profile-gql';
-import { MyProfileGQL,Agent } from 'src/app/graphql/queries/myprofile-gql'
+//import { MyProfileGQL,Agent } from 'src/app/graphql/queries/persona-profiles-gql'
 import { map } from 'rxjs/operators';
 
 
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user: Agent;
+  //user: Agent;
   registered: Promise<boolean> = new Promise(()=>{return true});
   errorMessage: string = "Sign In"
   avatarLink: string = "../../assets/img/avatar_placeholder.jpg"
@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private createProfile: CreateProfileGQL,
-    private myprofile:MyProfileGQL,
+    //private myprofile:MyProfileGQL,
     private router: Router
   ) {}
 
@@ -69,7 +69,7 @@ export class SignupComponent implements OnInit {
   }
 
 
-  private async isRegistered():Promise<boolean>{
+  /*private async isRegistered():Promise<boolean>{
     if(!this.user)
       this.user =  await this.getProfileData()
     if(this.user.profile)
@@ -90,5 +90,5 @@ export class SignupComponent implements OnInit {
 
   unregister(){
     this.errorMessage = "unregister has not been implemented yet"  
-  }
+  }*/
 }

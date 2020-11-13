@@ -14,16 +14,16 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">(0)</th>
-                <th scope="col"><select><option *ngFor="let p of personas" [ngValue]="p">{{p}}</option></select></th>
+                <th scope="col"><select><option *ngFor="let p of (personalist | async)" [ngValue]="p.id">{{p.name}}</option></select></th>
                 <th scope="col">edit</th>
               </tr> 
             </thead>
            
             <tbody>
               <h2>Profiles</h2>
-                <tr *ngFor='let p of profiles'>
-                  <td scope="row"><a routerLink="/profile/{{ profiles[0] }}" routerLinkActive="active">
-                  {{p}}</a></td>
+                <tr *ngFor="let p of (profilelist | async)">
+                  <td scope="row"><a routerLink="/profile/{{ profiles_mock[0] }}" routerLinkActive="active">
+                  {{p.application_name}}</a></td>
                 </tr>
             </tbody>
           </table>
@@ -33,7 +33,7 @@
           <table class="table">
               <tr>
                 <th>Me</th>
-                <th>People</th>
+                <th >People</th>
                 <th>things</th>
               </tr>
           </table>

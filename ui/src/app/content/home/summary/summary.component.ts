@@ -2,7 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from "@angular/router";
-import { AgentPersona } from 'src/app/graphql/interfaces';
+import { AgentPersona, ProfileData } from 'src/app/graphql/interfaces';
+import {AllAgentPersonasGQL} from 'src/app/graphql/queries/all-personas-gql'
+import {PersonaProfilesGQL} from 'src/app/graphql/queries/persona-profiles-gql'
+
 
 @Component({
   selector: "summarylist",
@@ -12,26 +15,50 @@ import { AgentPersona } from 'src/app/graphql/interfaces';
 export class SummaryComponent implements OnInit {
   persona: AgentPersona;
   personalist: Observable<AgentPersona[]>;
+  profilelist: Observable<ProfileData[]>
   errorMessage:string
-  personas:string[] = ["friends","work","developer"] //mock
-  profiles:string[] = ["calendar","chat","adacast"] //mock
+  personas_mock:string[] = ["friends","work","developer"] //mock
+  profiles_mock:string[] = ["calendar","chat","adacast"] //mock
 
-  constructor(  private router: Router) {  //private agents: AllPersonasGQL, AllProfilesGQL
+  constructor( private personas: AllAgentPersonasGQL, private personaProfiles: PersonaProfilesGQL,  private router: Router) {
   }
 
-  ngOnInit() {
-
-    //TODD.. query summary data
-    /*try {
-      this.personalist = this.agents.watch().valueChanges.pipe(map(result=>{
-        if (!result.errors)
-          return result.data.allAgents.map(agent => <Agent>{id:agent.id,profile:agent.profile})
-        this.errorMessage = result.errors[0].message
-        return null
-      }))
+  async ngOnInit() {
+    try {
+      this.personalist = this.personas.watch().valueChanges.pipe(map(result=>
+        {
+          if (!result.errors)
+            return result.data.allPersonas//.map(person => <AgentPersona>{id:person.id,name:person.name,avatar:person.avatar})
+          this.errorMessage = result.errors[0].message
+          return null
+        })
+      ) 
+        const id = {persona_id:"98247590823"}
+      this.profilelist = this.personaProfiles.watch(id).valueChanges.pipe(map(result=>
+        {
+          if (!result.errors)
+            return result.data.personaProfiles//.map(person => <AgentPersona>{id:person.id,name:person.name,avatar:person.avatar})
+          this.errorMessage = result.errors[0].message
+          return null
+        }))
     } catch(exception){
         this.errorMessage = exception
-    }*/
+    }
+  }
+
+  async switch_persona(pid){
+    try {
+      this.profilelist = this.personaProfiles.watch(pid).valueChanges.pipe(map(result=>
+        {
+          if (!result.errors)
+            return result.data.personaProfiles//.map(person => <AgentPersona>{id:person.id,name:person.name,avatar:person.avatar})
+          this.errorMessage = result.errors[0].message
+          return null
+        }))
+    } catch(exception){
+        this.errorMessage = exception
+    }
+
   }
 
 }
