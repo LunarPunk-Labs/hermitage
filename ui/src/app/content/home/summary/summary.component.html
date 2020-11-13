@@ -1,0 +1,70 @@
+ <div class="col-md-9" style="margin: auto;">
+  <div style="color:red">{{errorMessage}}</div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <section class="post-footer-comment-wrapper">
+          <table class="table">
+            Persona list
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Id</th>
+                <th scope="col">creation date</th>
+                <th scope="col">Last used</th>
+              </tr>
+            </thead>
+           
+            <tbody>
+                <tr *ngFor='let persona of (personalist | async)'>
+                  <th scope="row"><a routerLink="/profile/{{ persona.hash }}" routerLinkActive="active">
+                    <img
+                      class="photo-profile"
+                      src="../assets/img/avatar_placeholder.jpg"
+                      width="40"
+                      height="40"
+                      alt="..."
+                    />
+                  </a></th>
+                  <td>Maija</td>
+                  <td>123</td>
+                  <td>01/01/2020</td>
+                  <td>01/01/2020</td>
+                </tr>
+            </tbody>
+          </table>
+          <br />
+        </section>
+        <section class="post-footer-comment-wrapper">
+          <table class="table">
+            Profile list
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Id</th>
+                <th scope="col">creation date</th>
+                <th scope="col">Last used</th>
+              </tr>
+            </thead>
+           
+            <tbody>
+              <tr>
+                <!--<tr *ngFor='let user of (userlist | async)'>
+                  <th scope="row"><a routerLink="/profile/{{ user.hash }}" routerLinkActive="active">
+                    <img
+                      class="photo-profile"
+                      src="../assets/img/avatar_placeholder.jpg"
+                      width="40"
+                      height="40"
+                      alt="..."
+                    />-->
+                  <td>blah</td>
+                  <td>31/12/2012</td>
+                  <td>01/01/2020</td>
+                </tr>
+            </tbody>
+          </table>
+          <br />
+        </section>
+      </div>
+    </div>
+  </div>

@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from "./profile/profile.component";
+import { PersonaComponent } from "./persona/persona.component";
+
 
 
 // Import all the components for which navigation service has to be activated
@@ -27,6 +29,14 @@ const routes: Routes = [
   },
   {
     path: "profile/:id",
+    component: ProfileComponent
+  },
+  {
+    path: "persona",
+    component: PersonaComponent
+  },
+  {
+    path: "persona/:id",
     component: ProfileComponent
   },
   {

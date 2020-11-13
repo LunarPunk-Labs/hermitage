@@ -1,35 +1,14 @@
 import {AgentPubKey } from '@holochain/conductor-api';
 import {GraphQLError} from 'graphql'
+import {ProfileInit, AccessType} from './interfaces'
 
 const ZOME_NAME = 'profiles'
-
-
-export enum AccessType {
-  PUBLIC,
-  PRIVATE,
-  PRIVATE_CONFIRM
-}
-
-export interface  ProfileField {
-  uuid: string,
-  name: string,
-  display_name: string,
-  required: boolean,
-  description: string,
-  access: AccessType,
-  schema: String
-}
-
-export interface Profile {
-  application_name: string,
-  app_hash: string,
-  fields: [ProfileField]
-}
 
 export const mock_resolvers = {
   Query: {
     async profile(_, {profile_id}, connection) {
-      let profile:Profile = {
+      let profile:ProfileInit = {
+        uuid:"chujefhk234234wefwef",
         application_name: "my app",
         app_hash: "my hash",
         fields: [{
@@ -39,7 +18,9 @@ export const mock_resolvers = {
           required: true,
           description: "test",
           access: AccessType.PUBLIC,
-          schema: "{}"
+          schema: "{}",
+          persona: "personal",
+          value: ""
         }] 
       }
       return  profile

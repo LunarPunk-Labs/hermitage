@@ -6,9 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home/home.component';
-import { UserListComponent } from './home/userlist/userlist.component';
+import { SummaryComponent } from './home/summary/summary.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from "./profile/profile.component";
+import { PersonaComponent } from "./persona/persona.component";
 import { HeaderComponent } from "./common/header/header.component"
 
 
@@ -16,9 +17,10 @@ import { HeaderComponent } from "./common/header/header.component"
 @NgModule({
   declarations: [
     HomeComponent,
-    UserListComponent,
+    SummaryComponent,
     SignupComponent,
     ProfileComponent,
+    PersonaComponent,
     HeaderComponent
   ],
   imports: [
