@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CreateProfileGQL } from 'src/app/graphql/queries/create-profile-gql';
+//import { CreateProfileGQL } from 'src/app/graphql/queries/get-profile-gql';
 //import { MyProfileGQL,Agent } from 'src/app/graphql/queries/persona-profiles-gql'
 import { map } from 'rxjs/operators';
 
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private createProfile: CreateProfileGQL,
+    //private createProfile: CreateProfileGQL,
     //private myprofile:MyProfileGQL,
     private router: Router
   ) {}

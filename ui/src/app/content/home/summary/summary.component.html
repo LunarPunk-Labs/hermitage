@@ -14,7 +14,9 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">(0)</th>
-                <th scope="col"><select><option *ngFor="let p of (personalist | async)" [ngValue]="p.id">{{p.name}}</option></select></th>
+                <th scope="col"><select (change)="switch_persona($event)">
+                  <option *ngFor="let p of (personalist | async)" [ngValue]="p.id">{{p.name}}</option>
+                </select></th>
                 <th scope="col">edit</th>
               </tr> 
             </thead>
@@ -22,7 +24,7 @@
             <tbody>
               <h2>Profiles</h2>
                 <tr *ngFor="let p of (profilelist | async)">
-                  <td scope="row"><a routerLink="/profile/{{ profiles_mock[0] }}" routerLinkActive="active">
+                  <td scope="row"><a routerLink="/profile/{{ p.id }}" routerLinkActive="active">
                   {{p.application_name}}</a></td>
                 </tr>
             </tbody>

@@ -2,15 +2,28 @@
 export const typeDefs =`
 
 enum AccessType {
-  PUBLIC,
   PRIVATE,
-  PRIVATE_CONFIRM
+  DISPLAY,
+  STORE
 }
 
 type AgentPersona {
   id: ID!
   name: String!
   avatar:String
+}
+
+type PersonaData {
+  id:ID!,
+  name:String!,
+  avatar:String,
+  fields:[PersonaField]
+}
+
+type PersonaField {
+  id:ID!
+  name: String!,
+  value: String!
 }
 
 type ProfileData {
@@ -57,7 +70,7 @@ type ProfileFieldOut {
 type Query {
   profile(profile_id:ID!): ProfileData
   allPersonas: [AgentPersona!]!
-  currentPersona: AgentPersona!
+  personaData(persona_id:ID): PersonaData!
   personaProfiles(persona_id: ID!):[ProfileData]
 }
 

@@ -1,13 +1,34 @@
+
+//Better AccessType names?
+
+//private = unshared, 
+//display = read_but_not_store  
+//store = public
+
+
 export enum AccessType {
-  PUBLIC,
-  PRIVATE,
-  PRIVATE_CONFIRM
+  PRIVATE="PRIVATE",
+  DISPLAY="DISPLAY",
+  STORE="STORE"
 }
 
 export interface AgentPersona {
   id: string
   name: string,
   avatar:string
+}
+
+export interface PersonaData {
+  id:string,
+  name:string,
+  avatar:string,
+  fields:PersonaField[]
+}
+
+export interface PersonaField {
+  id:string
+  name: string,
+  value: string
 }
 
 export interface ProfileInit {

@@ -4,7 +4,7 @@ import {ProfileInit, AccessType, AgentPersona} from './interfaces'
 
 export const mock_resolvers = {
   Query: {
-    async profile(_, {profile_id}) {
+    profile(_, {profile_id}) {
       let profile:ProfileInit = {
         uuid:"chujefhk234234wefwef",
         application_name: "my app",
@@ -15,7 +15,7 @@ export const mock_resolvers = {
           display_name: "display",
           required: true,
           description: "test",
-          access: AccessType.PUBLIC,
+          access: AccessType.DISPLAY,
           schema: "{}",
           persona: "personal",
           value: ""
@@ -23,19 +23,16 @@ export const mock_resolvers = {
       }
       return  profile
     },
-    async currentPersona(_, __) {
-   //   if (connection.state == 2)
-     //   return new GraphQLError("Holochain is disconnected")
-      //const response = await connection.call( ZOME_NAME,'get_my_profile', null);
-      //if (!response) {
-      //  const my_pub_key = await connection.call(ZOME_NAME, 'who_am_i', null);
-      //  return { id: my_pub_key };
-     // }
-      return {
-        //id: agent_pub_key,
-        //profile: response.profile,
-      };
-      //return { id: address };
+    personaData(_, {persona_id}) {
+      //determines persona
+      console.log("retrieving data for persona",persona_id)
+      let array = []
+      array.push({id:"xyz",name:"Developer",avatar:"",
+      fields:[{id:"def24524",name:"team_mate1",value:"Josh"},
+        {id:"d3f24524",name:"team_mate2",value:"Maija"},
+        {id:"uu8978924",name:"team_mate3",value:"Monique"}
+      ]})
+      return array
     },
     allPersonas(_, __) {
       let array = []
@@ -51,21 +48,21 @@ export const mock_resolvers = {
       let array = []
       array.push({uuid:"chujefhk234234wefwef",
         name: "profile1",
-      application_name: "Calendar",
-      app_hash: "my hash",
-      expiry: 0,
-      enabled: true,
-      fields: [{
-        uuid: "aUUID",
-        name: "myname",
-        display_name: "display",
-        required: true,
-        description: "test",
-        access: "PUBLIC",
-        schema: "{}",
-        persona: "personal",
-        value: "Josh"
-      }]})
+        application_name: "Calendar",
+        app_hash: "my hash",
+        expiry: 0,
+        enabled: true,
+        fields: [{
+          uuid: "aUUID",
+          name: "myname",
+          display_name: "display",
+          required: true,
+          description: "test",
+          access: AccessType.STORE,
+          schema: "{}",
+          persona: "personal",
+          value: "Josh"
+        }]})
       return array
     }
   },
