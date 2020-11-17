@@ -1,4 +1,13 @@
+#bgimage {
+  background: url(src/assets/img/bkg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
 
+
+/* 
 .login-page {
   width: 360px;
   padding: 8% 0 8%;
@@ -99,7 +108,7 @@
   min-height:100vh;
 }
 body {
-  background: #60666b; /* fallback for old browsers */
+  background: #60666b; 
   background: -webkit-linear-gradient(right, #6c757d, #6c757d);
   background: -moz-linear-gradient(right, #6c757d, #6c757d);
   background: -o-linear-gradient(right, #6c757d, #6c757d);
@@ -162,4 +171,4 @@ body {
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
-}
+} */

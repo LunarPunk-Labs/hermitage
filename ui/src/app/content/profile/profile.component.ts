@@ -13,10 +13,11 @@ export class ProfileComponent implements OnInit {
   user: AgentPersona //Promise<User> | null = null
   errorMessage:string = ""
   appfields: FormGroup
-  submitted = false;
-  inputFields = ["name","age","telephone"] //sample
-  data = ["josh","21","034534342"]
-  personas = ["work","personal"]
+  editing = false;
+  inputFields = ["username","password","network"] //will come form app
+  visibility = ["Public","Private","Public"] //from holovault
+  data = ["Josh","********","odyssey"] //from holovault
+  personas = ["work","friends","finance","hacker"] //from holovault
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +38,8 @@ export class ProfileComponent implements OnInit {
       Rows : this.fb.array([])
     });
       this.populateForm()
+      if (this.router.url.endsWith("edit"))
+        this.editing = true
   }
 
   populateForm(){
@@ -49,6 +52,7 @@ export class ProfileComponent implements OnInit {
 
   sendData(){
     console.log(this.appfields.getRawValue())
+    this.router.navigate(["home/"]);
   }
 
   logout(){

@@ -2,34 +2,31 @@
 
 <div id="wrapper">
   <!-- Sidebar -->
-  <ul class="sidebar navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" routerLink="/profile"
-      routerLinkActive="active">
-        <i class="fas fa-home"></i>
-        <span>whats here?</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/persona"
-      routerLinkActive="active">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Personas Flower</span></a
-      >
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="logout()">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Logout</span></a
-      >
-    </li>
-  </ul>
+  <div class="text-secondary bg-dark px-4 block-pt-48" style="min-width: 15rem; top:9rem;">
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="fas fa-fw fa-user-circle mr-2"></i>
+          <span>Me</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/persona" routerLinkActive="active">
+          <i class="fas fa-fw fa-certificate mr-2"></i>
+          <span>Personas</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          <i class="fas fa-fw fa-key mr-2"></i>
+          <span>Logout</span></a>
+      </li>
+    </ul>
+  </div>
 
-  <div id="content-wrapper">
+  <div id="content-wrapper" class="d-flex flex-column w-100 block-mt-36">
     <div class="container-fluid">
 
       <!-- Posts-->
-      <summarylist></summarylist>
+      <summarylist class="row"></summarylist>
       <br />
 
       <!-- /.container-fluid -->

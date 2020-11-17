@@ -1,0 +1,12 @@
+@each $identifier, $size in $utility-spacer {
+  .min-h-#{$identifier} {
+    min-height: #{$size};
+  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    .min-h-#{$breakpoint}-#{$identifier} {
+      @include media-breakpoint-up(#{$breakpoint}) {
+        min-height: #{$size} !important;
+      }
+    }
+  }
+}

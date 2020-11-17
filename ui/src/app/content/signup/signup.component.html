@@ -1,25 +1,29 @@
 <body>
   <div id="bgimage">
-    <div class="login-page">
-      <div class="form">
-        <div class="login-form">
-          <form [formGroup]="profileForm" (ngSubmit)="signUp()">
-            <label style="color:red">{{errorMessage}}</label>
-            <input *ngIf="!(registered | async)" type="text" placeholder="handle" formControlName="handle" />
-            <input *ngIf="!(registered | async) as boolean"
-              type="text"
-              placeholder="Avatar Link"
-              formControlName="avatar"
-            />
-            <button *ngIf="!(registered | async) as boolean">
+    <div class="login-page  min-vh-100 d-flex justify-content-center align-items-center pt-5">
+      <div class="card bg-white ">
+        <form [formGroup]="profileForm" (ngSubmit)="signUp()">
+          <div class="card-header">
+            <h1>Hermitage</h1>
+          </div>
+          <div class="card-body ">
+            <div class="text-danger mb-2">{{errorMessage}}</div>
+            <div class="form-group">
+              <input class="form-control" *ngIf="!(registered | async)" type="text" placeholder="password"
+                formControlName="handle" />
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block btn-lg" *ngIf="!(registered | async) as boolean">
               Skip
             </button>
-          </form>
-          <button *ngIf="(registered | async) as boolean" (click)="setAndRoute()">
-            Continue
-          </button>
-          <br/><br/>
-        </div>
+            <button class="btn btn-primary btn-block btn-lg" *ngIf="(registered | async) as boolean"
+              (click)="setAndRoute()">
+              Continue
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

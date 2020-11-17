@@ -2,101 +2,193 @@
 
 <div id="wrapper">
   <!-- Sidebar -->
-  <ul class="sidebar navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" 
-      routerLink="/home"
-      routerLinkActive="active">
-        <i class="fas fa-home"></i>
-        <span>Me</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/persona"
-      routerLinkActive="active">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Personas Flower</span></a
-      >
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="logout()">
-        <i class="fas fa-fw fa-table"></i>
-        <span>logout</span></a
-      >
-    </li>
-  </ul>
-
-  <div id="content-wrapper">
+  <div
+    class="text-secondary bg-dark px-4 block-pt-48"
+    style="min-width: 15rem; top: 9rem"
+  >
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">
+          <i class="fas fa-fw fa-user-circle mr-2"></i>
+          <span>Me</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/persona" routerLinkActive="active">
+          <i class="fas fa-fw fa-certificate mr-2"></i>
+          <span>Personas</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          <i class="fas fa-fw fa-key mr-2"></i>
+          <span>Logout</span></a
+        >
+      </li>
+    </ul>
+  </div>
+  <div id="content-wrapper" class="d-flex flex-column w-100 block-mt-36">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a routerLink="/home" routerLinkActive="active">Application1</a>
+          <a routerLink="/home" routerLinkActive="active">HCalendar</a>
         </li>
         <li class="breadcrumb-item active">Profile</li>
       </ol>
 
-      <!-- userdata-->
-      <div class="col-md-9" style="margin: auto;">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <section class="post-heading">
-              <div class="row">
-                <div class="col-md-11">
-                  <div style="color:red">{{errorMessage}}</div>
-                  <div class="media">
-                    <div class="media-left">
-                        <h4 class="media-heading">{{ user.name }}</h4>       
+      <!-- new data -->
+      <div *ngIf="!editing">
+        <div class="col-md-9" style="margin: auto">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <section class="post-heading">
+                <div class="row">
+                  <div class="col-md-11">
+                    <div style="color: red">{{ errorMessage }}</div>
+                    <div class="media">
+                      <div class="media-left">
+                        <h4 class="media-heading">
+                          HCalendar is requesting field data...
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
-            <section class="post-body">
-              <img class="image" src="" width="40" height="40"/>
-              <br/>Persona: select persona dropdown box
-              <br> show fields here requested by app
-            </section>
-            
-            <br /><br />
+              </section>
+              <section class="post-body">
+                <br />Choose or create a persona for the application:
+                <select>
+                  <option *ngFor="let p of personas" [ngValue]="p">
+                    {{ p }}
+                  </option>
+                </select>
+              </section>
+
+              <br /><br />
+            </div>
           </div>
         </div>
-      </div>
-      <br />
+        <br />
 
-      <div class="col-md-12" style="margin: auto;">
-        <div style="color:red">{{errorMessage}}</div>
+        <div class="col-md-12" style="margin: auto">
+          <div style="color: red">{{ errorMessage }}</div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <form class="form" *ngIf="formArr.controls" [formGroup]="appfields" (ngSubmit)="sendData()">
+              <form
+                class="form"
+                *ngIf="formArr.controls"
+                [formGroup]="appfields"
+                (ngSubmit)="sendData()"
+              >
                 <section class="post-footer-comment-wrapper">
-              
                   <table class="table">
-                    
-                      <tr *ngFor="let item of inputFields; let i=index;">
-                        <td class="thead-light" scope="row">{{inputFields[i]}}</td> <td><input type="text" value="{{formArr.value[i]}}"/></td>
-                        <td><select><option *ngFor="let p of personas" [ngValue]="p">{{p}}</option></select></td>
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Field</th>
+                        <th scope="col">data</th>
+                        <th scope="col">visibility</th>
+                        <th scope="col">alternative persona field</th>
                       </tr>
-                  
-                    
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of inputFields; let i = index">
+                        <td class="thead-light" scope="row">
+                          {{ inputFields[i] }}
+                        </td>
+                        <td>
+                          <input
+                            class="form-control"
+                            type="text"
+                            value="{{ formArr.value[i] }}"
+                          />
+                        </td>
+                        <td>{{ visibility[i] }}</td>
+                        <td>
+                          <select class="custom-select">
+                            <option *ngFor="let p of personas" [ngValue]="p">
+                              {{ p }}
+                            </option>
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </section>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">
+                  Return Data to App
+                </button>
               </form>
               <br />
             </div>
           </div>
         </div>
-      
+      </div>
 
-      <!-- /.container-fluid -->
+      <!-- edit profile -->
+      <div *ngIf="editing">
+        <div class="media-left">
+          <h4 class="media-heading">View/Edit Profile</h4>
+        </div>
+        <div class="col-md-12" style="margin: auto">
+          <div style="color: red">{{ errorMessage }}</div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form
+                class="form"
+                *ngIf="formArr.controls"
+                [formGroup]="appfields"
+                (ngSubmit)="sendData()"
+              >
+                <section class="post-footer-comment-wrapper">
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Field</th>
+                        <th scope="col">data</th>
+                        <th scope="col">visibility</th>
+                        <th scope="col">alternative persona field</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of inputFields; let i = index">
+                        <td class="thead-light" scope="row">
+                          {{ inputFields[i] }}
+                        </td>
+                        <td>
+                          <input
+                            class="form-control"
+                            type="text"
+                            value="{{ formArr.value[i] }}"
+                          />
+                        </td>
+                        <td>{{ visibility[i] }}</td>
+                        <td>
+                          <select class="custom-select">
+                            <option *ngFor="let p of personas" [ngValue]="p">
+                              {{ p }}
+                            </option>
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.container-fluid -->
   </div>
-  <!-- /#wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+  <!-- /.content-wrapper -->
 </div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>

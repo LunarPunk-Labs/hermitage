@@ -1,0 +1,5 @@
+@each $identifier, $size in $utility-spacer {
+  .h-#{$identifier} {
+    height: #{$size};
+  }
+}

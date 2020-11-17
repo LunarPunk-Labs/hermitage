@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
+
+/* global box-sizing */
+*,
+*:after,
+*:before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/*------------------------------------*\
+    MISC
+\*------------------------------------*/
+
+::selection {
+  background: $primary;
+  color: $dark;
+  text-shadow: none;
+}
+
+::-webkit-selection {
+  background: $primary;
+  color: $dark;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: $primary;
+  color: $dark;
+  text-shadow: none;
+}

@@ -1,0 +1,12 @@
+@each $identifier, $size in $utility-spacer {
+  .max-h-#{$identifier} {
+    max-height: #{$size};
+  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    .max-h-#{$breakpoint}-#{$identifier} {
+      @include media-breakpoint-up(#{$breakpoint}) {
+        max-height: #{$size} !important;
+      }
+    }
+  }
+}

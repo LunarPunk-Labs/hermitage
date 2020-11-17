@@ -46,23 +46,62 @@ export const mock_resolvers = {
       //determines profiles by persona_id
       console.log("retrieving profiles for persona",persona_id)
       let array = []
-      array.push({uuid:"chujefhk234234wefwef",
-        name: "profile1",
-        application_name: "Calendar",
-        app_hash: "my hash",
-        expiry: 0,
-        enabled: true,
-        fields: [{
-          uuid: "aUUID",
-          name: "myname",
-          display_name: "display",
-          required: true,
-          description: "test",
-          access: AccessType.STORE,
-          schema: "{}",
-          persona: "personal",
-          value: "Josh"
-        }]})
+      if(persona_id == "work"){
+
+        array.push({uuid:"chujefhk234234wefwef",
+          name: "profile1",
+          application_name: "Github",
+          app_hash: "my hash",
+          expiry: 0,
+          enabled: true,
+          fields: [{
+            uuid: "aUUID",
+            name: "myname",
+            display_name: "display",
+            required: true,
+            description: "test",
+            access: AccessType.STORE,
+            schema: "{}",
+            persona: "work",
+            value: "credentials"
+          }]}
+        )
+      } else {
+        array.push({uuid:"chujefhk234234wefwef",
+          name: "profile1",
+          application_name: "Calendar",
+          app_hash: "my hash",
+          expiry: 0,
+          enabled: true,
+          fields: [{
+            uuid: "aUUID",
+            name: "myname",
+            display_name: "display",
+            required: true,
+            description: "test",
+            access: AccessType.STORE,
+            schema: "{}",
+            persona: "personal",
+            value: "Josh"
+          }]},{uuid:"chujefhk2342sdsdsd34wefwef",
+          name: "profile1",
+          application_name: "Instagram",
+          app_hash: "my hash",
+          expiry: 0,
+          enabled: true,
+          fields: [{
+            uuid: "aUUID",
+            name: "myname",
+            display_name: "display",
+            required: true,
+            description: "test",
+            access: AccessType.STORE,
+            schema: "{}",
+            persona: "personal",
+            value: "Josh"
+          }]
+        })
+      }
       return array
     }
   },

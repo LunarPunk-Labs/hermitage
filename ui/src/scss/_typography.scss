@@ -1,0 +1,54 @@
+/* !NB Most styles are addressed in _variables.scss
+Complete list of all Boostrap 4 theming variables can be found
+https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+
+ */
+
+
+
+// Need extra font size? use responsive mixin
+
+// .my-custom-responsive-font-size {
+//   @include font-size(4rem);
+// }
+
+// @TODO remove unused font weights
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* blockquotes
+-----------------------------*/
+
+blockquote {
+  font-family: $font-family-sans-serif;
+  font-size: 26px;
+  font-style: italic;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  position: relative;
+  color: $dark;
+  border-left: none;
+}
+
+blockquote:before {
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-family: $font-family-base;
+  font-style: normal;
+  font-size: 96px;
+  position: absolute;
+  left: -5px;
+  top: -50px;
+  color: $primary;
+}
+
+blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+blockquote cite:before {
+  content: "\2014 \2009";
+}

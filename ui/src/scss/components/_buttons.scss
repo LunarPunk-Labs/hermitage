@@ -1,0 +1,67 @@
+.btn {
+  text-transform: uppercase;
+}
+
+/**************
+FAQ
+**********/
+
+.toggle-open {
+  @extend .bouncy-transition;
+  position: relative;
+  display: block;
+  float: right;
+  top: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin-right: 1.5rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    border-bottom: 2px solid $primary;
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  &:after {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+}
+
+.collapsed {
+  .toggle-open {
+    &:before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+}
+
+.btn-circle {
+  width: $input-line-height * 1.5 + rem;
+  height: $input-line-height * 1.5 + rem;
+  padding: 0;
+  line-height: $input-line-height;
+  border-radius: 100%;
+  text-align: center;
+  //line-height: 1.42857;
+}

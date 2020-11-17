@@ -1,0 +1,194 @@
+/*
+Complete list of all Boostrap 4 theming variables can be found
+https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+
+ */
+
+
+
+$white: #ffffff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #f7f7f9 !default;
+$gray-300: #eceeef !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #919aa1 !default;
+$gray-700: #55595c !default;
+$gray-800: #343a40 !default;
+$gray-900: #1a1a1a !default;
+$black: #011627 !default;
+
+
+$blue: #43ADDC !default;
+$teal: #25B0C2 !default;
+$red: #EE4266 !default;
+$green: #99D17B !default;
+$purple: #9B287B !default;
+$pink: #FC6471 !default;
+$orange: #EFA00B !default;
+$yellow: #F6AE2D !default;
+$indigo: #6610f2 !default;
+$cyan: #119DF5 !default;
+
+$default: $teal !default;
+$primary: $teal !default;
+$secondary: $blue !default;
+$success: $green !default;
+$info: $blue !default;
+$warning: $orange !default;
+$danger: $red !default;
+$light: $white !default;
+$dark: $black !default;
+
+$colors: ("blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "transparent": "transparent",
+  "white": $white,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "black": $black);
+
+
+
+/* Global
+----------------------------*/
+
+// $yiq-contrasted-threshold: 185 !default; //setting for accessibility tweek it at own risk to prevent font color change on buttons
+$body-bg: $light !default;
+$card-bg: $white !default;
+
+
+// Options
+
+$enable-rounded: false;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-responsive-font-size: true;
+$border-radius: 3px !default;
+// Body
+
+$body-color: $dark !default;
+
+// Spacers
+
+$spacer: 1.5rem !default;
+$spacers: (0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+
+
+
+// Define common padding and border radius sizes and more.
+
+$border-width: 1px !default;
+$border-color: $teal !default;
+$box-shadow: 0px 0px 4px rgba(14, 68, 119, 0.171) !default;
+
+
+
+
+// Fonts
+$font-family-sans-serif: 'Open Sans',
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+"Helvetica Neue",
+Arial,
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol" !default;
+
+$font-family-monospace: 'Space Mono',
+monospace;
+
+
+
+$font-family-base: $font-family-sans-serif !default;
+$headings-font-family: $font-family-monospace !default;
+
+
+$font-weight-normal: 400 !default;
+$font-weight-bold: 500 !default;
+$font-weight-base: $font-weight-normal !default;
+$font-size-base: 1.1rem !default;
+$small-font-size: 0.8375rem !default;
+
+
+$line-height-base: 1.50 !default;
+$line-height-sm: 1.38 !default;
+$line-height-lg: 1.8 !default;
+
+
+// $headings-line-height: 1.3 !default;
+$headings-font-weight: 400 !default;
+
+$h1-font-size: $font-size-base * 2.8 !default;
+$h2-font-size: $font-size-base * 2.4 !default;
+$h3-font-size: $font-size-base * 2 !default;
+$h4-font-size: $font-size-base * 1.6 !default;
+$h5-font-size: $font-size-base * 1.2 !default;
+$h6-font-size: $font-size-base !default;
+
+// $input-btn-font-family: $font-family-sans-serif !default;
+
+
+//cards
+$card-title-spacer-y: 0 !default;
+$card-cap-bg: transparent !default;
+$card-bg: transparent !default;
+$card-border-width: 1px !default;
+$card-border-color: $black !default;
+
+//table
+$table-cell-padding: 1rem !default;
+
+
+
+//Inputs
+$input-border-color: $black !default;
+$input-focus-border-color: $primary !default;
+$input-focus-color: $primary !default;
+$custom-control-indicator-checked-bg: $primary !default;
+$custom-control-indicator-border-color: $dark !default;
+$custom-control-indicator-checked-disabled-bg: transparentize($primary, 0.7) !default;
+$custom-control-indicator-checked-border-color: transparentize($dark, 0.7) !default;
+
+// $dropdown-bg: $white !default;
+$dropdown-header-color: $primary !default;
+$dropdown-item-padding-x: 2rem !default;
+$dropdown-item-padding-y: 0.5rem !default;
+$dropdown-padding-y: 1rem !default;
+$dropdown-min-width: 250px !default;
+
+
+$list-group-active-color: $dark !default;
+$list-group-active-bg: $secondary !default;

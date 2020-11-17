@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
 export class SignupComponent implements OnInit {
   //user: Agent;
   registered: Promise<boolean> = new Promise(()=>{return true});
-  errorMessage: string = "Sign In"
+  errorMessage: string = ""
   avatarLink: string = "../../assets/img/avatar_placeholder.jpg"
 
   constructor(
@@ -62,10 +62,10 @@ export class SignupComponent implements OnInit {
   };
 
   setAndRoute(){
-    sessionStorage.setItem("userhash","team Identity")//this.user.id)
-    sessionStorage.setItem("username","team Identity")//this.user.profile.username)
+    sessionStorage.setItem("userhash","123456789")//this.user.id)
+    sessionStorage.setItem("username","LunaPunkLabs")//this.user.profile.username)
     sessionStorage.setItem("avatar","team Identity")//this.avatarLink)
-    this.router.navigate(["profile"]);
+    this.router.navigate(["profile/new"]);
   }
 
 

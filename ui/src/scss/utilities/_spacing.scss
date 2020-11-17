@@ -1,0 +1,51 @@
+/**
+the block padding class is used for standard content block spacing
+
+ */
+
+
+
+@each $identifier,
+$size in $utility-spacer {
+  .block-py-#{$identifier} {
+    padding-top: #{$size};
+    padding-bottom: #{$size};
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+
+  @each $identifier,
+  $size in $utility-spacer {
+    .block-py-#{$identifier} {
+      padding-top: #{$size / 2};
+      padding-bottom: #{$size / 2};
+    }
+  }
+}
+
+@each $identifier,
+$size in $utility-spacer {
+  .block-pt-#{$identifier} {
+    padding-top: #{$size};
+  }
+}
+
+@each $identifier,
+$size in $utility-spacer {
+  .block-mt-#{$identifier} {
+    margin-top: #{$size};
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+
+  @each $identifier,
+  $size in $utility-spacer {
+    .block-pt-#{$identifier} {
+      padding-top: #{$size / 2};
+    }
+  }
+}

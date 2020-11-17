@@ -1,0 +1,36 @@
+@each $name,
+$color in $colors {
+  .text-#{$name} {
+    color: #{$color} !important;
+  }
+
+  .bg-#{$name} {
+    background-color: #{$color} !important;
+  }
+}
+
+.border-gradient {
+  border-image-slice: 1;
+}
+
+
+
+.border-gradient-1 {
+  @extend .border-gradient;
+  border-image-source: conic-gradient(from 180deg at 50% 50%, #0072C5 0deg, rgba(0, 114, 197, 0) 360deg);
+}
+
+.border-gradient-2 {
+  @extend .border-gradient;
+  border-image-source: conic-gradient(from 180deg at 50% 50%, rgba(191, 19, 99, 0) 0deg, #43ADDC 50.63deg, #25B0C2 206.25deg, rgba(191, 19, 99, 0) 360deg);
+}
+
+.border-gradient-3 {
+  @extend .border-gradient;
+  border-image-source: conic-gradient(from 180deg at 50% 50%, #0DFFEC -71.25deg, #0090FF 24.38deg, #DA8BFF 142.5deg, #0DFFEC 288.75deg, #0090FF 384.38deg);
+}
+
+.border-gradient-4 {
+  @extend .border-gradient;
+  border-image-source: conic-gradient(from 180deg at 50% 50%, rgba(191, 19, 99, 0.25) 0deg, rgba(67, 173, 220, 0.89) 54.38deg, #011627 140.63deg, rgba(37, 176, 194, 0.54) 256.87deg, rgba(191, 19, 99, 0.25) 360deg);
+}

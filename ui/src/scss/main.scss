@@ -1,0 +1,42 @@
+/* THEMING
+----------------------------*/
+@import "variables"; // core Bootstrap varialbles, full list https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+@import "custom_variables"; // admitional variables needed for themin
+
+
+@import "bootstrap"; // import neccessary bootstrap bits (if you don't use purge, manualy adjust this file
+
+
+/* UTILITIES
+----------------------------*/
+@import 'utilities/borders';
+@import 'utilities/colors';
+@import 'utilities/mixins';
+@import 'utilities/height';
+@import 'utilities/maxheight';
+@import 'utilities/minheight';
+@import 'utilities/spacing';
+@import 'utilities/width';
+@import "utilities/transitions";
+// @import "utilities/cursor";
+
+
+/* LAYOUT
+----------------------------*/
+@import "layout/layout";
+@import 'layout/nav';
+@import 'layout/header';
+@import 'layout/footer';
+
+/* COMPONENTS
+----------------------------*/
+@import "components/buttons";
+@import 'components/form';
+@import 'components/table';
+@import "components/cards";
+@import "components/profile";
+
+
+/* GLOBAL
+----------------------------*/
+@import "global";

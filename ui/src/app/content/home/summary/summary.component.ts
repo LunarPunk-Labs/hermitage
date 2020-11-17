@@ -17,6 +17,7 @@ export class SummaryComponent implements OnInit {
   personalist: Observable<AgentPersona[]>;
   profilelist: Observable<ProfileData[]>
   errorMessage:string
+  filterlist:string[] = ["Me","People","Things"]
 
   constructor( private personas: AllAgentPersonasGQL, private personaProfiles: PersonaProfilesGQL,  private router: Router) {
   }
@@ -43,6 +44,8 @@ export class SummaryComponent implements OnInit {
         this.errorMessage = exception
     }
   }
+
+  filter(e:any){}
 
   switch_persona(e:any){
     try {
